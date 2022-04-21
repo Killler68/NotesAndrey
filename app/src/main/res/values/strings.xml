@@ -2,4 +2,12 @@
     <string name="app_name">NotesAndrey</string>
     <string name="buttom1">Кнопка 1</string>
     <string name="buttom2">Кнопка 2</string>
+    <string name="name_beer">Найди пиво</string>
+    <string name="brands"></string>
+    <string-array name="beer_colors">
+        <item>light</item>
+        <item>amber</item>
+        <item>brown</item>
+        <item>dark</item>
+    </string-array>
 </resources>
