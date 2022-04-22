@@ -6,7 +6,7 @@
     android:background="#ccc"
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
-    tools:context=".FirstFragment">
+    tools:context=".FindBeerFragment">
 
     <Spinner
         android:id="@+id/color"
@@ -33,7 +33,7 @@
         android:id="@+id/brands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/brands"
+        android:text=""
         android:textSize="25sp"
         android:layout_below="@+id/find_beer"
         android:layout_alignStart="@+id/find_beer"
