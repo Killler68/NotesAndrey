@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
-import androidx.core.content.contentValuesOf
-import com.example.notesandrey.extensions.beerExpert
-import com.example.notesandrey.extensions.navigateToFragment
 
 
-class FirstFragment : Fragment() {
+class FindBeerFragment : Fragment() {
 
-    private val texView: TextView by lazy {
+    private val brand: TextView by lazy {
         requireActivity().findViewById(R.id.brands)
     }
     private val spinner: Spinner by lazy {
@@ -48,13 +44,13 @@ class FirstFragment : Fragment() {
         button.setOnClickListener {
 
             val beerType = spinner.selectedItem.toString()
-            texView.text = beerType
+            brand.text = beerType
             var str = ""
 
             for (brand in beerExpert(beerType)) {
                 str += brand + "\n"
             }
-            texView.text = str
+            brand.text = str
         }
     }
 
@@ -64,7 +60,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_find_beer, container, false)
     }
 
 }
