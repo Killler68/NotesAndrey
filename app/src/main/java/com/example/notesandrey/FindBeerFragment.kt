@@ -12,7 +12,7 @@ import android.widget.TextView
 
 class FindBeerFragment : Fragment() {
 
-    private val texView: TextView by lazy {
+    private val brand: TextView by lazy {
         requireActivity().findViewById(R.id.brands)
     }
     private val spinner: Spinner by lazy {
@@ -44,13 +44,13 @@ class FindBeerFragment : Fragment() {
         button.setOnClickListener {
 
             val beerType = spinner.selectedItem.toString()
-            texView.text = beerType
+            brand.text = beerType
             var str = ""
 
             for (brand in beerExpert(beerType)) {
                 str += brand + "\n"
             }
-            texView.text = str
+            brand.text = str
         }
     }
 

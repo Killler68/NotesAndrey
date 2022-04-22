@@ -8,7 +8,7 @@ import com.example.notesandrey.extensions.navigateToFragment
 
 class MainActivity : AppCompatActivity() {
     private val button1: Button by lazy {
-        findViewById(R.id.find_beer1)
+        findViewById(R.id.find_beer_button)
     }
     private val button2: Button by lazy {
         findViewById(R.id.btn_fragment2)
