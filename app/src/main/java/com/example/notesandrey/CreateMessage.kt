@@ -38,8 +38,8 @@ class CreateMessage : Fragment() {
         createButton.setOnClickListener {
             val fragmentReceive = ReceiveMessage()
             val bundle = Bundle()
-            val nameMessage = onSendMessage()
-            bundle.putString(bundleArguments, nameMessage)
+//            val nameMessage = onSendMessage()
+            bundle.putString(bundleArguments, onSendMessage())
             fragmentReceive.arguments = bundle
             navigateToFragmentWithOutBackStack(fragmentReceive)
 
@@ -50,10 +50,6 @@ class CreateMessage : Fragment() {
             requireActivity().startActivity(intent)
         }
     }
-
-//    fun bundleText() {
-//
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
