@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
+const val BUNDLE_ARGUMENTS = "key"
 
 class ReceiveMessage : Fragment() {
 
@@ -16,8 +17,8 @@ class ReceiveMessage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val str = arguments?.getString(bundleArguments)
-        textViewMessage.text = str.toString()
+        val resultSend = arguments?.getString(BUNDLE_ARGUMENTS)
+        textViewMessage.text = resultSend.toString()
 
     }
 

@@ -10,10 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.notesandrey.extensions.navigateToFragmentWithOutBackStack
 
-private const val MESSAGE_SEND = "Сообщение отправлено"
-private const val UN_MESSAGE_SEND = "Сообщение не отправлено"
-const val bundleArguments = "MyArg"
-const val intentType = "text/plain"
+private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
+private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"
+const val INTENT_TYPE = "text/plain"
 
 class CreateMessage : Fragment() {
 
@@ -26,9 +25,9 @@ class CreateMessage : Fragment() {
 
     private fun onSendMessage(): String {
         return if (editSendMessage.text.count() > 5) {
-            MESSAGE_SEND
+            EDIT_SEND_MESSAGE1
         } else {
-            UN_MESSAGE_SEND
+            EDIT_SEND_MESSAGE2
         }
     }
 
@@ -39,13 +38,13 @@ class CreateMessage : Fragment() {
             val fragmentReceive = ReceiveMessage()
             val bundle = Bundle()
             val sendMessage = onSendMessage()
-            bundle.putString(bundleArguments, sendMessage)
+            bundle.putString(BUNDLE_ARGUMENTS, sendMessage)
             fragmentReceive.arguments = bundle
             navigateToFragmentWithOutBackStack(fragmentReceive)
 
             val intentEditText = editSendMessage.text
             val intent = Intent(Intent.ACTION_SEND)
-            intent.type = (intentType)
+            intent.type = (INTENT_TYPE)
             intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
             requireActivity().startActivity(intent)
         }
