@@ -6,7 +6,7 @@ import com.example.notesandrey.R
 
 fun AppCompatActivity.navigateToFragment(fragment: Fragment) {
     this.supportFragmentManager.beginTransaction()
-        .replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
+        .replace(R.id.fragment_relative_layout_activity, fragment, fragment.javaClass.simpleName)
         .addToBackStack(fragment.javaClass.simpleName)
         .commit()
 }

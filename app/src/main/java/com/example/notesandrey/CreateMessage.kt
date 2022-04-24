@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.notesandrey.extensions.navigateToFragmentWithOutBackStack
 
+val intent = Intent(Intent.ACTION_SEND)
 
 class CreateMessage : Fragment() {
 
@@ -25,7 +26,6 @@ class CreateMessage : Fragment() {
 
         createButton.setOnClickListener {
             navigateToFragmentWithOutBackStack(ReceiveMessage())
-            val intent = Intent(Intent.ACTION_SEND)
             val intentEditText = editSendMessage.text
             intent.type = ("text/plain")
             intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
