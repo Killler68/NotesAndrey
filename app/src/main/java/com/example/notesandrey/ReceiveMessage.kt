@@ -16,8 +16,8 @@ class ReceiveMessage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val arg = arguments?.getString(bundleArguments)
-        textViewMessage.text = arg.toString()
+        val str = arguments?.getString(bundleArguments)
+        textViewMessage.text = str.toString()
 
     }
 

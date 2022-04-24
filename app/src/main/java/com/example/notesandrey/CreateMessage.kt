@@ -38,8 +38,8 @@ class CreateMessage : Fragment() {
         createButton.setOnClickListener {
             val fragmentReceive = ReceiveMessage()
             val bundle = Bundle()
-//            val nameMessage = onSendMessage()
-            bundle.putString(bundleArguments, onSendMessage())
+            val sendMessage = onSendMessage()
+            bundle.putString(bundleArguments, sendMessage)
             fragmentReceive.arguments = bundle
             navigateToFragmentWithOutBackStack(fragmentReceive)
 
