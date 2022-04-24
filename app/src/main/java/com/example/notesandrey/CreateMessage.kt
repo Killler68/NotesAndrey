@@ -16,11 +16,11 @@ const val INTENT_TYPE = "text/plain"
 
 class CreateMessage : Fragment() {
 
-    private val createButton: Button by lazy {
-        requireActivity().findViewById(R.id.create_send)
+    private val sendButton: Button by lazy {
+        requireActivity().findViewById(R.id.send_message)
     }
     private val editSendMessage: EditText by lazy {
-        requireActivity().findViewById(R.id.create_message)
+        requireActivity().findViewById(R.id.message)
     }
 
     private fun onSendMessage(): String {
@@ -34,7 +34,7 @@ class CreateMessage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        createButton.setOnClickListener {
+        sendButton.setOnClickListener {
             val fragmentReceive = ReceiveMessage()
             val bundle = Bundle()
             val sendMessage = onSendMessage()
