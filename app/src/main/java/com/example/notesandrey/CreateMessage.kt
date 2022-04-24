@@ -10,7 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.notesandrey.extensions.navigateToFragmentWithOutBackStack
 
-val intent = Intent(Intent.ACTION_SEND)
+private const val MESSAGE_SEND = "Сообщение отправлено"
+private const val UN_MESSAGE_SEND = "Сообщение не отправлено"
+const val bundleArguments = "MyArg"
+const val intentType = "text/plain"
 
 class CreateMessage : Fragment() {
 
@@ -21,17 +24,36 @@ class CreateMessage : Fragment() {
         requireActivity().findViewById(R.id.create_message)
     }
 
+    private fun onSendMessage(): String {
+        return if (editSendMessage.text.count() > 5) {
+            MESSAGE_SEND
+        } else {
+            UN_MESSAGE_SEND
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         createButton.setOnClickListener {
-            navigateToFragmentWithOutBackStack(ReceiveMessage())
+            val fragmentReceive = ReceiveMessage()
+            val bundle = Bundle()
+            val nameMessage = onSendMessage()
+            bundle.putString(bundleArguments, nameMessage)
+            fragmentReceive.arguments = bundle
+            navigateToFragmentWithOutBackStack(fragmentReceive)
+
             val intentEditText = editSendMessage.text
-            intent.type = ("text/plain")
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = (intentType)
             intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
             requireActivity().startActivity(intent)
         }
     }
+
+//    fun bundleText() {
+//
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

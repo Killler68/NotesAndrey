@@ -5,11 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 
-private const val MESSAGE_SEND = "Сообщение отправлено"
-private const val UN_MESSAGE_SEND = "Сообщение не отправлено"
 
 class ReceiveMessage : Fragment() {
 
@@ -17,23 +14,10 @@ class ReceiveMessage : Fragment() {
         requireActivity().findViewById(R.id.text_receive_view)
     }
 
-    private val textEditMessage: EditText by lazy {
-        requireActivity().findViewById(R.id.create_message)
-    }
-
-
-    private fun onSendMessage(): String {
-        return if (textEditMessage.text.count() > 5) {
-            MESSAGE_SEND
-        } else {
-            UN_MESSAGE_SEND
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sendMessage = onSendMessage()
-        textViewMessage.text = sendMessage
+        val arg = arguments?.getString(bundleArguments)
+        textViewMessage.text = arg.toString()
 
     }
 
