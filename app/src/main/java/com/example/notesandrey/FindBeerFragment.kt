@@ -40,7 +40,6 @@ class FindBeerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         beerExpert("amber")
 
-
         button.setOnClickListener {
 
             val beerType = spinner.selectedItem.toString()
