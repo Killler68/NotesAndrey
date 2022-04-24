@@ -26,6 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:contentDescription="@string/app_name"
+        android:rotation="29"
+        android:rotationX="38"
+        android:rotationY="-29"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
