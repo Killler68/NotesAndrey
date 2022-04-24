@@ -7,24 +7,23 @@ import com.example.notesandrey.extensions.navigateToFragment
 
 
 class MainActivity : AppCompatActivity() {
-    private val button1: Button by lazy {
+    private val buttonBeer: Button by lazy {
         findViewById(R.id.find_beer_button)
     }
-    private val button2: Button by lazy {
-        findViewById(R.id.btn_fragment2)
+    private val buttonMessage: Button by lazy {
+        findViewById(R.id.send_button)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        button1.setOnClickListener {
+        buttonBeer.setOnClickListener {
             navigateToFragment(FindBeerFragment())
         }
-        button2.setOnClickListener {
-            navigateToFragment(SecondFragment())
-        }
+        buttonMessage.setOnClickListener {
+            navigateToFragment(CreateMessage())
 
+        }
     }
 }
