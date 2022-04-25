@@ -9,6 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 
+private const val START_TIME = 0
+private const val HOURS_IN_SECOND = 3600
+private const val MINUTES_IN_SECOND = 60
+private const val SECOND_IN_MILLIS = 1000
+private const val TIME_FORMAT = "%02d:%02d:%02d"
+
 class StopWatchFragment : Fragment() {
 
     private val timeView: TextView by lazy {
@@ -25,10 +31,6 @@ class StopWatchFragment : Fragment() {
     }
 
     private var second = 0
-    private val zero = 0
-    private val hoursInSecond = 3600
-    private val minutesInSecond = 60
-    private val secondInMillis = 1000
     private var isRunning: Boolean = false
     private val handler = Handler()
     private val runnable = Runnable { runTimer() }
@@ -38,7 +40,7 @@ class StopWatchFragment : Fragment() {
 
         runTimer()
 
-        startButton.setOnClickListener() {
+        startButton.setOnClickListener {
             startButton.isEnabled = false
             isRunning = true
         }
@@ -48,24 +50,24 @@ class StopWatchFragment : Fragment() {
         }
         resetButton.setOnClickListener {
             isRunning = false
-            second = zero
+            second = START_TIME
         }
     }
 
     private fun runTimer() {
         handler.post {
-            val hours = second / hoursInSecond
-            val minutes = (second / minutesInSecond) % minutesInSecond
-            val secs = second % minutesInSecond
+            val hours = second / HOURS_IN_SECOND
+            val minutes = (second / MINUTES_IN_SECOND) % MINUTES_IN_SECOND
+            val secs = second % MINUTES_IN_SECOND
             val time = String.format(
-                "%02d:%02d:%02d",
+                TIME_FORMAT,
                 hours, minutes, secs
             )
             timeView.text = time
             if (isRunning) {
                 second++
             }
-            handler.postDelayed(runnable, secondInMillis.toLong())
+            handler.postDelayed(runnable, SECOND_IN_MILLIS.toLong())
         }
     }
 
