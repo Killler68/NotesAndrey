@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
     private val buttonMessage: Button by lazy {
         findViewById(R.id.send_button)
     }
+    private val stopWatch: Button by lazy {
+        findViewById(R.id.stop_watch)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
         buttonMessage.setOnClickListener {
             navigateToFragment(CreateMessage())
-
+        }
+        stopWatch.setOnClickListener {
+            navigateToFragment(StopWatchFragment())
         }
     }
 }
