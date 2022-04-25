@@ -23,7 +23,7 @@ class FindBeerFragment : Fragment() {
         requireActivity().findViewById(R.id.find_beer)
     }
 
-    fun beerExpert(color: String): List<String> {
+    private fun beerExpert(color: String): List<String> {
 
         val list = when (color) {
             "amber" -> listOf("Jack Amber", "Red Mouse")
