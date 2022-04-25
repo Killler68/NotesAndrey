@@ -7,6 +7,7 @@
     <string name="send_editText">Введите сообщение</string>
     <string name="send_fragment">Сообщение отправлено</string>
     <string name="zero">Пустой</string>
+    <string name="chooser">Telegram</string>
     <string-array name="beer_colors">
         <item>light</item>
         <item>amber</item>
