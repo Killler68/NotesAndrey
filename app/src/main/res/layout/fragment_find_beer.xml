@@ -16,8 +16,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:contentDescription="@string/name_beer"
-        android:minHeight="48dp"
-        android:entries="@array/beer_colors"/>
+        android:entries="@array/beer_colors"
+        android:minHeight="48dp" />
 
 
     <Button
