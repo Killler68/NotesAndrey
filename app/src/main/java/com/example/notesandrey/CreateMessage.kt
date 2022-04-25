@@ -46,7 +46,9 @@ class CreateMessage : Fragment() {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = (INTENT_TYPE)
             intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
-            requireActivity().startActivity(intent)
+            val chooserTitle = getString(R.string.chooser)
+            val chooserIntent = Intent.createChooser(intent, chooserTitle)
+            requireActivity().startActivity(chooserIntent)
         }
     }
 
