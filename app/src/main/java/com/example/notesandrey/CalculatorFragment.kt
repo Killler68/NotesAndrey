@@ -31,6 +31,7 @@ private const val POINT = "."
 private const val BRACKET_LEFT = "("
 private const val BRACKET_RIGHT = ")"
 private const val BACK = ""
+private const val NUM_0 = 0
 private const val NUM_1 = 1
 
 
@@ -164,7 +165,7 @@ class CalculatorFragment : Fragment() {
         back.setOnClickListener {
             val str = textField.text.toString()
             if (str.isNotEmpty())
-                textField.text = str.substring(0, str.length - NUM_1)
+                textField.text = str.substring(NUM_0, str.length - NUM_1)
         }
         equally.setOnClickListener {
             try {
