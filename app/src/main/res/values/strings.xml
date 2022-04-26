@@ -8,6 +8,11 @@
     <string name="send_fragment">Сообщение отправлено</string>
     <string name="zero">Пустой</string>
     <string name="chooser">Telegram</string>
+    <string name="start">Начать</string>
+    <string name="stop">Стоп</string>
+    <string name="reset">Сброс</string>
+    <string name="stop_watch">Секундомер</string>
+
     <string-array name="beer_colors">
         <item>light</item>
         <item>amber</item>
