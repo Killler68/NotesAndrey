@@ -68,13 +68,13 @@
             android:text="@string/stop_watch" />
 
         <Button
-            android:id="@+id/zero2"
+            android:id="@+id/calculator_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_weight="1"
             android:minHeight="48dp"
-            android:text="@string/zero" />
+            android:text="@string/calculator" />
 
         <Button
             android:id="@+id/zero3"
