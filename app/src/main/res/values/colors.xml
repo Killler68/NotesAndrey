@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="calc">#FFB5AEAE</color>
     <color name="button">#B54343</color>
+    <color name="red">#7E1717</color>
+    <color name="gray">#555C5C</color>
 </resources>

@@ -13,8 +13,11 @@ class MainActivity : AppCompatActivity() {
     private val buttonMessage: Button by lazy {
         findViewById(R.id.send_button)
     }
-    private val stopWatch: Button by lazy {
+    private val buttonStopWatch: Button by lazy {
         findViewById(R.id.stop_watch)
+    }
+    private val buttonCalculator: Button by lazy {
+        findViewById(R.id.calculator_button)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +30,12 @@ class MainActivity : AppCompatActivity() {
         buttonMessage.setOnClickListener {
             navigateToFragment(CreateMessage())
         }
-        stopWatch.setOnClickListener {
+        buttonStopWatch.setOnClickListener {
             navigateToFragment(StopWatchFragment())
         }
+        buttonCalculator.setOnClickListener {
+            navigateToFragment(CalculatorFragment())
+        }
+
     }
 }
