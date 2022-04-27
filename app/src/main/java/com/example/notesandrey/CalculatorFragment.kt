@@ -13,8 +13,6 @@ import com.example.notesandrey.extensions.Operators
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
-private const val NUM_0 = 0
-private const val NUM_1 = 1
 private const val BACK = ("")
 
 class CalculatorFragment : Fragment() {
@@ -85,8 +83,6 @@ class CalculatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         buttonNumber0.setOnClickListener {
             setTextFields(Numbers.NUMBER_0)
         }
@@ -147,7 +143,7 @@ class CalculatorFragment : Fragment() {
         back.setOnClickListener {
             val str = textField.text.toString()
             if (str.isNotEmpty())
-                textField.text = str.substring(NUM_0, str.length - NUM_1)
+                textField.text = str.removeRange(str.lastIndex..str.lastIndex)
         }
         equally.setOnClickListener {
             try {
