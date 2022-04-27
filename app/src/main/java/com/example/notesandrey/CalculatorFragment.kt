@@ -8,32 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.notesandrey.extensions.Numbers
+import com.example.notesandrey.extensions.Operators
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
-
-private const val NUMBER_0 = "0"
-private const val NUMBER_1 = "1"
-private const val NUMBER_2 = "2"
-private const val NUMBER_3 = "3"
-private const val NUMBER_4 = "4"
-private const val NUMBER_5 = "5"
-private const val NUMBER_6 = "6"
-private const val NUMBER_7 = "7"
-private const val NUMBER_8 = "8"
-private const val NUMBER_9 = "9"
-private const val SUM = "+"
-private const val DIFFERENCE = "-"
-private const val MULTIPLICATION = "*"
-private const val DIVISION = "/"
-private const val EQUALLY = "="
-private const val POINT = "."
-private const val BRACKET_LEFT = "("
-private const val BRACKET_RIGHT = ")"
-private const val BACK = ""
 private const val NUM_0 = 0
 private const val NUM_1 = 1
-
+private const val BACK = ("")
 
 class CalculatorFragment : Fragment() {
 
@@ -106,58 +88,58 @@ class CalculatorFragment : Fragment() {
 
 
         buttonNumber0.setOnClickListener {
-            setTextFields(NUMBER_0)
+            setTextFields(Numbers.NUMBER_0)
         }
         buttonNumber1.setOnClickListener {
-            setTextFields(NUMBER_1)
+            setTextFields(Numbers.NUMBER_1)
         }
         buttonNumber2.setOnClickListener {
-            setTextFields(NUMBER_2)
+            setTextFields(Numbers.NUMBER_2)
         }
         buttonNumber3.setOnClickListener {
-            setTextFields(NUMBER_3)
+            setTextFields(Numbers.NUMBER_3)
         }
         buttonNumber4.setOnClickListener {
-            setTextFields(NUMBER_4)
+            setTextFields(Numbers.NUMBER_4)
         }
         buttonNumber5.setOnClickListener {
-            setTextFields(NUMBER_5)
+            setTextFields(Numbers.NUMBER_5)
         }
         buttonNumber6.setOnClickListener {
-            setTextFields(NUMBER_6)
+            setTextFields(Numbers.NUMBER_6)
         }
         buttonNumber7.setOnClickListener {
-            setTextFields(NUMBER_7)
+            setTextFields(Numbers.NUMBER_7)
         }
         buttonNumber8.setOnClickListener {
-            setTextFields(NUMBER_8)
+            setTextFields(Numbers.NUMBER_8)
         }
         buttonNumber9.setOnClickListener {
-            setTextFields(NUMBER_9)
+            setTextFields(Numbers.NUMBER_9)
         }
         sum.setOnClickListener {
-            setTextFields(SUM)
+            setOperatorFields(Operators.SUM)
         }
         difference.setOnClickListener {
-            setTextFields(DIFFERENCE)
+            setOperatorFields(Operators.DIFFERENCE)
         }
         multiplication.setOnClickListener {
-            setTextFields(MULTIPLICATION)
+            setOperatorFields(Operators.MULTIPLICATION)
         }
         division.setOnClickListener {
-            setTextFields(DIVISION)
+            setOperatorFields(Operators.DIVISION)
         }
         equally.setOnClickListener {
-            setTextFields(EQUALLY)
+            setOperatorFields(Operators.EQUALLY)
         }
         point.setOnClickListener {
-            setTextFields(POINT)
+            setOperatorFields(Operators.POINT)
         }
         bracketLeft.setOnClickListener {
-            setTextFields(BRACKET_LEFT)
+            setOperatorFields(Operators.BRACKET_LEFT)
         }
         bracketRight.setOnClickListener {
-            setTextFields(BRACKET_RIGHT)
+            setOperatorFields(Operators.BRACKET_RIGHT)
         }
         clear.setOnClickListener {
             textField.text = BACK
@@ -176,13 +158,17 @@ class CalculatorFragment : Fragment() {
                     textField.text = longResult.toString()
                 else textField.text = result.toString()
             } catch (e: Exception) {
-                Log.d("Ошибка", "Сообщение: ${e.message}")
+                Log.d(this.javaClass.simpleName, e.message.toString())
             }
         }
     }
 
-    private fun setTextFields(str: String) {
-        textField.append(str)
+    private fun setTextFields(str: Numbers) {
+        textField.append(str.value)
+    }
+
+    private fun setOperatorFields(str: Operators) {
+        textField.append(str.value)
     }
 
     override fun onCreateView(
