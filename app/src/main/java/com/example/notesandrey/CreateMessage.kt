@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import com.example.notesandrey.extensions.navigateToFragmentWithOutBackStack
+import com.example.notesandrey.extensions.navigateToFragment
 
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
 private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"
 const val INTENT_TYPE = "text/plain"
+private const val NUMBER_LENGTH = 5
+
 
 class CreateMessage : Fragment() {
 
@@ -24,7 +26,7 @@ class CreateMessage : Fragment() {
     }
 
     private fun onSendMessage(): String {
-        return if (editSendMessage.text.count() > 5) {
+        return if (editSendMessage.text.count() > NUMBER_LENGTH) {
             EDIT_SEND_MESSAGE1
         } else {
             EDIT_SEND_MESSAGE2
@@ -40,7 +42,7 @@ class CreateMessage : Fragment() {
             val sendMessage = onSendMessage()
             bundle.putString(BUNDLE_ARGUMENTS, sendMessage)
             fragmentReceive.arguments = bundle
-            navigateToFragmentWithOutBackStack(fragmentReceive)
+            navigateToFragment(fragmentReceive)
 
             val intentEditText = editSendMessage.text
             val intent = Intent(Intent.ACTION_SEND)
