@@ -14,7 +14,7 @@ private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"
 private const val NAME_BUTTON_TIME = "СЕКУНДОМЕР"
 private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
 
-class RecyclerFragment : Fragment() {
+class MainScreenFragment : Fragment() {
 
 
     private val recyclerView: RecyclerView by lazy {
