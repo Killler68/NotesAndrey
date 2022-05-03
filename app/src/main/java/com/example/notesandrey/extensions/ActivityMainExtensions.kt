@@ -7,6 +7,6 @@ import com.example.notesandrey.R
 
 fun AppCompatActivity.navigateToFragmentActivity(fragment: Fragment) {
     supportFragmentManager.beginTransaction()
-        .replace(R.id.container, fragment)
+        .replace(R.id.background_main, fragment)
         .commit()
 }

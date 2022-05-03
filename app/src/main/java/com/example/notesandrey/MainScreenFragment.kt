@@ -16,7 +16,6 @@ private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
 
 class MainScreenFragment : Fragment() {
 
-
     private val recyclerView: RecyclerView by lazy {
         requireActivity().findViewById(R.id.recyclerView)
     }
@@ -29,7 +28,6 @@ class MainScreenFragment : Fragment() {
         recyclerView.adapter = recyclerViewAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerViewAdapter.setItems(items)
-
     }
 
     private fun onClick(fragment: Fragment) {
