@@ -9,11 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.notesandrey.extensions.navigateToFragment
 
 
-class FragmentSecond : Fragment() {
+class FragmentMiniGamesCreated : Fragment() {
 
 
     private val btn1: Button by lazy {
@@ -34,14 +33,14 @@ class FragmentSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_mini_games_created, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         btn1.setOnClickListener {
-            navigateToFragment(FragmentFirst())
+            navigateToFragment(FragmentGamesCounter())
         }
         btn3.setOnClickListener {
             showInfo(text = "no", btn3)

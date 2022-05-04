@@ -14,6 +14,7 @@ private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"
 private const val NAME_BUTTON_TIME = "СЕКУНДОМЕР"
 private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
 private const val NAME_BUTTON_BANNER = "БАННЕР"
+private const val NAME_BUTTON_MINI_GAMES = "МИНИ ИГРЫ"
 
 class MainScreenFragment : Fragment() {
 
@@ -41,8 +42,8 @@ class MainScreenFragment : Fragment() {
             FragmentItem(CreateMessage(), NAME_BUTTON_MESSAGE, ::onClick),
             FragmentItem(StopWatchFragment(), NAME_BUTTON_TIME, ::onClick),
             FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
-            FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick)
-
+            FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick),
+            FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick)
         )
 
     override fun onCreateView(

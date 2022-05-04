@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 
-class FragmentFirst : Fragment() {
+class FragmentGamesCounter : Fragment() {
 
     private var counter = 0
     private var start = false
@@ -25,7 +25,7 @@ class FragmentFirst : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_games_counter, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
