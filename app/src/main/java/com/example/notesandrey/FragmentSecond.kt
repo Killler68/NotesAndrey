@@ -49,15 +49,12 @@ class FragmentSecond : Fragment() {
         btn2.setOnClickListener {
             showInfo(textName.text.toString(), btn2)
         }
-
     }
 
-private fun showInfo(text: String, btnOn: Button) {
+    private fun showInfo(text: String, btnOn: Button) {
 
-    btnOn.text = "Уже нажали"
-    btnOn.setBackgroundColor(Color.RED)
-    Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
+        btnOn.text = "Уже нажали"
+        btnOn.setBackgroundColor(Color.RED)
+        Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
+    }
 }
-
-
-    }

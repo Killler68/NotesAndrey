@@ -50,5 +50,10 @@
     <string name="text_cat3">Не оставь коту ни единого шанса… опрокинь ёлку сам!</string>
     <string name="text_cat4">Справляется с беспокойством просто замурчательно</string>
 
+    <string name="btn1">Счетчик</string>
+    <string name="btn2">Кнопка 2</string>
+    <string name="btn3">Кнопка 3</string>
+    <string name="hello">hello My Friend</string>
+
 
 </resources>

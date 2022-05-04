@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background_layout_fragment_second"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/background_layout_fragment_second"
     tools:context=".FragmentSecond">
 
 
@@ -13,8 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="100dp"
-        android:text="Кнопка 1"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/btn1" />
 
     <Button
         android:id="@+id/button2"
@@ -23,10 +23,8 @@
         android:layout_marginHorizontal="150dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/teal_700"
-        android:text="Кнопка 2"
-        app:cornerRadius="30sp"
-
-        tools:ignore="MissingConstraints" />
+        android:text="@string/btn2"
+        app:cornerRadius="30sp" />
 
     <TextView
         android:id="@+id/textView"
@@ -34,8 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="150dp"
         android:layout_marginTop="100dp"
-        android:text="Привет "
-
+        android:text="@string/hello"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
@@ -46,8 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="30dp"
-        android:text="Кнопка 3" />
-
+        android:text="@string/btn3" />
 
 
 </FrameLayout>
