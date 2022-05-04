@@ -6,46 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".FragmentPerson">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="100dp"
-        android:text="Кнопка 1"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="150dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Кнопка 2"
-        app:cornerRadius="30sp"
-
-        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="150dp"
-        android:layout_marginTop="100dp"
-        android:text="Привет "
-
-        android:textColor="@color/teal_700"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="30dp"
-        android:text="Кнопка 3" />
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/text"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginVertical="200dp"
+        android:text="" />
 
 </FrameLayout>
