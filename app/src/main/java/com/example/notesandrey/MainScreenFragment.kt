@@ -13,6 +13,7 @@ private const val NAME_BUTTON_BEER = "НАЙДИ ПИВО"
 private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"
 private const val NAME_BUTTON_TIME = "СЕКУНДОМЕР"
 private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
+private const val NAME_BUTTON_BANNER = "БАННЕР"
 
 class MainScreenFragment : Fragment() {
 
@@ -39,7 +40,9 @@ class MainScreenFragment : Fragment() {
             FragmentItem(FindBeerFragment(), NAME_BUTTON_BEER, ::onClick),
             FragmentItem(CreateMessage(), NAME_BUTTON_MESSAGE, ::onClick),
             FragmentItem(StopWatchFragment(), NAME_BUTTON_TIME, ::onClick),
-            FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick)
+            FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
+            FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick)
+
         )
 
     override fun onCreateView(

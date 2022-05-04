@@ -44,4 +44,11 @@
     <string name="right_bracket">)</string>
     <string name="delete_all">C</string>
     <string name="delete_one">X</string>
+
+    <string name="text_cat1">Милые и привлекательные</string>
+    <string name="text_cat2">Мой пуся</string>
+    <string name="text_cat3">Не оставь коту ни единого шанса… опрокинь ёлку сам!</string>
+    <string name="text_cat4">Справляется с беспокойством просто замурчательно</string>
+
+
 </resources>
