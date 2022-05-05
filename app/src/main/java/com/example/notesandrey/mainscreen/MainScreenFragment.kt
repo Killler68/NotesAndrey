@@ -1,4 +1,4 @@
-package com.example.notesandrey.recyclerview
+package com.example.notesandrey.mainscreen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,9 +11,10 @@ import com.example.notesandrey.banner.FragmentBanner
 import com.example.notesandrey.beer.FindBeerFragment
 import com.example.notesandrey.calculator.CalculatorFragment
 import com.example.notesandrey.extensions.navigateToFragment
+import com.example.notesandrey.mainscreen.adapters.MainScreenRecyclerViewAdapter
+import com.example.notesandrey.mainscreen.models.FragmentItem
 import com.example.notesandrey.message.CreateMessage
 import com.example.notesandrey.minigames.FragmentMiniGamesCreated
-import com.example.notesandrey.recyclerview.FragmentItem
 import com.example.notesandrey.stopwatch.StopWatchFragment
 
 private const val NAME_BUTTON_BEER = "НАЙДИ ПИВО"

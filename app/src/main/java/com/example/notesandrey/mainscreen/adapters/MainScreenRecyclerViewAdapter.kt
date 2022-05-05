@@ -1,9 +1,11 @@
-package com.example.notesandrey.recyclerview
+package com.example.notesandrey.mainscreen.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesandrey.R
+import com.example.notesandrey.mainscreen.models.FragmentItem
+import com.example.notesandrey.mainscreen.viewholders.MainViewHolder
 
 
 class MainScreenRecyclerViewAdapter : RecyclerView.Adapter<MainViewHolder>() {

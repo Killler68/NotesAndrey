@@ -1,9 +1,9 @@
-package com.example.notesandrey
+package com.example.notesandrey.common.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.notesandrey.extensions.navigateToFragmentActivity
-import com.example.notesandrey.recyclerview.MainScreenFragment
+import com.example.notesandrey.R
+import com.example.notesandrey.mainscreen.MainScreenFragment
 
 
 class MainActivity : AppCompatActivity() {

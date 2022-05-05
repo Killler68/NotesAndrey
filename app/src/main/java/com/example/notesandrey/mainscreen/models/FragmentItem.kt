@@ -1,7 +1,6 @@
-package com.example.notesandrey.recyclerview
+package com.example.notesandrey.mainscreen.models
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 
 data class FragmentItem(
     val fragment: Fragment,

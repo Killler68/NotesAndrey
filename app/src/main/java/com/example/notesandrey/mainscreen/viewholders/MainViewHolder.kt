@@ -1,9 +1,10 @@
-package com.example.notesandrey.recyclerview
+package com.example.notesandrey.mainscreen.viewholders
 
 import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesandrey.R
+import com.example.notesandrey.mainscreen.models.FragmentItem
 
 class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var buttonItem: Button = itemView.findViewById(R.id.button_item)
