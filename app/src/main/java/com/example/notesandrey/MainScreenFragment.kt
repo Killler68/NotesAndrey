@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesandrey.extensions.navigateToFragment
 
@@ -18,10 +17,18 @@ private const val NAME_BUTTON_MINI_GAMES = "МИНИ ИГРЫ"
 
 class MainScreenFragment : Fragment() {
 
-    private val recyclerView: RecyclerView by lazy {
-        requireActivity().findViewById(R.id.recyclerView)
-    }
     private val recyclerViewAdapter = MainScreenRecyclerViewAdapter()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_recycler, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = recyclerViewAdapter
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,14 +51,4 @@ class MainScreenFragment : Fragment() {
             FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick)
         )
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_recycler, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.adapter = recyclerViewAdapter
-        return view
-    }
 }

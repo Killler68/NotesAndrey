@@ -15,13 +15,6 @@ class ReceiveMessage : Fragment() {
         requireActivity().findViewById(R.id.text_receive_view)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val resultSend = arguments?.getString(BUNDLE_ARGUMENTS)
-        textViewMessage.text = resultSend.toString()
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,4 +23,9 @@ class ReceiveMessage : Fragment() {
         return inflater.inflate(R.layout.fragment_receive_message, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val resultSend = arguments?.getString(BUNDLE_ARGUMENTS)
+        textViewMessage.text = resultSend.toString()
+    }
 }
