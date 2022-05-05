@@ -47,6 +47,10 @@ class StopWatchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (savedInstanceState != null) {
+            second = savedInstanceState.getInt("second")
+            isRunning = savedInstanceState.getBoolean("running")
+        }
         runTimer()
 
         startButton.setOnClickListener {
@@ -78,5 +82,11 @@ class StopWatchFragment : Fragment() {
             }
             handler.postDelayed(runnable, SECOND_IN_MILLIS.toLong())
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("second", second)
+        outState.putBoolean("running", isRunning)
     }
 }

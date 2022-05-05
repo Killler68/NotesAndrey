@@ -60,4 +60,8 @@ class FindBeerFragment : Fragment() {
             brand.text = str
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
 }
