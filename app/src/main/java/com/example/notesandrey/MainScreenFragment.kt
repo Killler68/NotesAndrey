@@ -27,8 +27,6 @@ class MainScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val items = getItems()
-        recyclerView.adapter = recyclerViewAdapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerViewAdapter.setItems(items)
     }
 
@@ -51,6 +49,9 @@ class MainScreenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recycler, container, false)
+        val view = inflater.inflate(R.layout.fragment_recycler, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = recyclerViewAdapter
+        return view
     }
 }

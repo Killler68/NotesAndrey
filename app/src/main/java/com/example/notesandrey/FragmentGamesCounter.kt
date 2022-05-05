@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 
 
 class FragmentGamesCounter : Fragment() {
@@ -16,10 +15,6 @@ class FragmentGamesCounter : Fragment() {
     private val text: TextView by lazy {
         requireActivity().findViewById(R.id.text)
     }
-    private val backgroundLayout: ConstraintLayout by lazy {
-        requireActivity().findViewById(R.id.background_layout_fragment_second)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -10,9 +10,9 @@
 
 
         <Button
-            android:id="@+id/title"
+            android:id="@+id/button_item"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginHorizontal="5dp"
             android:textAlignment="center"
             android:textSize="20sp"
