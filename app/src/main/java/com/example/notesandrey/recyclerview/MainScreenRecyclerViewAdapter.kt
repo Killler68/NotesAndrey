@@ -1,8 +1,9 @@
-package com.example.notesandrey
+package com.example.notesandrey.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesandrey.R
 
 
 class MainScreenRecyclerViewAdapter : RecyclerView.Adapter<MainViewHolder>() {

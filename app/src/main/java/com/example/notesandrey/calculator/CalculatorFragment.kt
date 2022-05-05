@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.calculator
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.notesandrey.R
 import com.example.notesandrey.extensions.Numbers
 import com.example.notesandrey.extensions.Operators
 import net.objecthunter.exp4j.ExpressionBuilder

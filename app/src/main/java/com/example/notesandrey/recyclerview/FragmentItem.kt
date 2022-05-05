@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.recyclerview
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

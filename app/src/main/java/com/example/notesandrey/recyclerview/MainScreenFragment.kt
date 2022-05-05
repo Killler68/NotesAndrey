@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.recyclerview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesandrey.R
+import com.example.notesandrey.banner.FragmentBanner
+import com.example.notesandrey.beer.FindBeerFragment
+import com.example.notesandrey.calculator.CalculatorFragment
 import com.example.notesandrey.extensions.navigateToFragment
+import com.example.notesandrey.message.CreateMessage
+import com.example.notesandrey.minigames.FragmentMiniGamesCreated
+import com.example.notesandrey.recyclerview.FragmentItem
+import com.example.notesandrey.stopwatch.StopWatchFragment
 
 private const val NAME_BUTTON_BEER = "НАЙДИ ПИВО"
 private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"

@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.stopwatch
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.example.notesandrey.R
 
 private const val START_TIME = 0
 private const val HOURS_IN_SECOND = 3600

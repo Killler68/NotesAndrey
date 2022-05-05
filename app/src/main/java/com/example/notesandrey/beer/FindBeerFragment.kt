@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.beer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import com.example.notesandrey.R
 
 
 class FindBeerFragment : Fragment() {

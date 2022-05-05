@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.minigames
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.notesandrey.R
 import com.example.notesandrey.extensions.navigateToFragment
 
 

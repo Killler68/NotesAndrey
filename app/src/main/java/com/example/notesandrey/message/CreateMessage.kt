@@ -1,4 +1,4 @@
-package com.example.notesandrey
+package com.example.notesandrey.message
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import com.example.notesandrey.R
 import com.example.notesandrey.extensions.navigateToFragment
 
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"

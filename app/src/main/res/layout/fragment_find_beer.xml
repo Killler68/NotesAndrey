@@ -6,7 +6,7 @@
     android:background="#ccc"
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
-    tools:context=".FindBeerFragment">
+    tools:context=".beer.FindBeerFragment">
 
     <Spinner
         android:id="@+id/color"
