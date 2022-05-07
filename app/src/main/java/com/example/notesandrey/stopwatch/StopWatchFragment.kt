@@ -1,5 +1,7 @@
 package com.example.notesandrey.stopwatch
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -83,6 +85,7 @@ class StopWatchFragment : Fragment() {
             handler.postDelayed(runnable, SECOND_IN_MILLIS.toLong())
         }
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

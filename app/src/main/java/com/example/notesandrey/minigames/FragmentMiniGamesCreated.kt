@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.notesandrey.MyDialogFragment
 import com.example.notesandrey.R
-import com.example.notesandrey.extensions.navigateToFragment
+import com.example.notesandrey.common.fragment.navigateToFragment
 
 
 class FragmentMiniGamesCreated : Fragment() {
@@ -27,6 +28,9 @@ class FragmentMiniGamesCreated : Fragment() {
     }
     private val textName: TextView by lazy {
         requireActivity().findViewById(R.id.textView)
+    }
+    private val dialogFragment: Button by lazy {
+        requireActivity().findViewById(R.id.button4)
     }
 
     override fun onCreateView(
@@ -49,7 +53,17 @@ class FragmentMiniGamesCreated : Fragment() {
         btn2.setOnClickListener {
             showInfo(textName.text.toString(), btn2)
         }
+//        dialogFragment.setOnClickListener {
+//            val builder = DialogFragment()
+//            val manager = parentFragmentManager
+//            builder.show(manager, "MyDialog")
+//        }
+        dialogFragment.setOnClickListener {
+            navigateToFragment(MyDialogFragment())
+        }
     }
+
+
 
     private fun showInfo(text: String, btnOn: Button) {
 
@@ -57,4 +71,8 @@ class FragmentMiniGamesCreated : Fragment() {
         btnOn.setBackgroundColor(Color.RED)
         Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
     }
+//  private  fun createSimpleDialog() {
+//        val builder = DialogFragment()
+//        builder
+//    }
 }

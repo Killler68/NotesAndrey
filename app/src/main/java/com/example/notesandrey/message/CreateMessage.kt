@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import com.example.notesandrey.R
-import com.example.notesandrey.extensions.navigateToFragment
+import com.example.notesandrey.common.fragment.navigateToFragment
 
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
 private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"

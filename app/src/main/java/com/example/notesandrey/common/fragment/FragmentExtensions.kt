@@ -1,4 +1,4 @@
-package com.example.notesandrey.extensions
+package com.example.notesandrey.common.fragment
 
 import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
