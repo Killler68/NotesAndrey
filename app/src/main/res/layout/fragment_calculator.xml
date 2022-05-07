@@ -20,7 +20,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/textField"
+                android:id="@+id/text_field"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:background="@color/black"

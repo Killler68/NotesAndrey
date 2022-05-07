@@ -2,14 +2,13 @@ package com.example.notesandrey.message
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
 import com.example.notesandrey.common.fragment.navigateToFragment
+import com.example.notesandrey.databinding.FragmentCreateMessageBinding
 
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
 private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"
@@ -19,20 +18,17 @@ private const val NUMBER_LENGTH = 5
 
 class CreateMessage : Fragment() {
 
-    private val sendButton: Button by lazy {
-        requireActivity().findViewById(R.id.send_message)
-    }
-    private val editSendMessage: EditText by lazy {
-        requireActivity().findViewById(R.id.message)
-    }
+    private var _binding: FragmentCreateMessageBinding? = null
+    private val binding get() = _binding!!
 
     private fun onSendMessage(): String {
-        return if (editSendMessage.text.count() > NUMBER_LENGTH) {
+        return if (binding.message.text.count() > NUMBER_LENGTH) {
             EDIT_SEND_MESSAGE1
         } else {
             EDIT_SEND_MESSAGE2
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,16 +39,18 @@ class CreateMessage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentCreateMessageBinding.bind(view)
 
-        sendButton.setOnClickListener {
+        binding.sendMessage.setOnClickListener {
             val fragmentReceive = ReceiveMessage()
             val bundle = Bundle()
             val sendMessage = onSendMessage()
             bundle.putString(BUNDLE_ARGUMENTS, sendMessage)
             fragmentReceive.arguments = bundle
+
             navigateToFragment(fragmentReceive)
 
-            val intentEditText = editSendMessage.text
+            val intentEditText = binding.message.text
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = (INTENT_TYPE)
             intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())

@@ -1,20 +1,19 @@
 package com.example.notesandrey.message
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
+import com.example.notesandrey.databinding.FragmentReceiveMessageBinding
 
 const val BUNDLE_ARGUMENTS = "key"
 
 class ReceiveMessage : Fragment() {
 
-    private val textViewMessage: TextView by lazy {
-        requireActivity().findViewById(R.id.text_receive_view)
-    }
+    private var _binding: FragmentReceiveMessageBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +25,8 @@ class ReceiveMessage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentReceiveMessageBinding.bind(view)
         val resultSend = arguments?.getString(BUNDLE_ARGUMENTS)
-        textViewMessage.text = resultSend.toString()
+        binding.textReceiveView.text = resultSend.toString()
     }
 }

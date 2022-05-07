@@ -1,21 +1,22 @@
 package com.example.notesandrey.minigames
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
+import com.example.notesandrey.databinding.FragmentGamesCounterBinding
 
 
 class FragmentGamesCounter : Fragment() {
 
+    private var _binding: FragmentGamesCounterBinding? = null
+    private val binding get() = _binding!!
+
     private var counter = 0
     private var start = false
-    private val text: TextView by lazy {
-        requireActivity().findViewById(R.id.text)
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,13 +27,14 @@ class FragmentGamesCounter : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentGamesCounterBinding.bind(view)
         Thread {
             start = true
             while (start) {
                 Thread.sleep(1000)
                 kotlin.run {
 //                    if (counter == 5) backgroundLayout.setBackgroundColor(Color.RED)
-                    text.text = counter.toString()
+                    binding.text.text = counter.toString()
                     counter++
                 }
             }

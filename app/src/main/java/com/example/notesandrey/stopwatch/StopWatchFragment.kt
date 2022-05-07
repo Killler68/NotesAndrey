@@ -1,37 +1,26 @@
 package com.example.notesandrey.stopwatch
 
-import android.app.Activity
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
+import com.example.notesandrey.databinding.FragmentStopwatchBinding
 
 private const val START_TIME = 0
 private const val HOURS_IN_SECOND = 3600
 private const val MINUTES_IN_SECOND = 60
 private const val SECOND_IN_MILLIS = 1000
 private const val TIME_FORMAT = "%02d:%02d:%02d"
+private const val SECOND = "second"
+private const val RUNNING = "running"
 
 class StopWatchFragment : Fragment() {
 
-    private val timeView: TextView by lazy {
-        requireActivity().findViewById(R.id.time_view)
-    }
-    private val startButton: Button by lazy {
-        requireActivity().findViewById(R.id.start_button)
-    }
-    private val stopButton: Button by lazy {
-        requireActivity().findViewById(R.id.stop_button)
-    }
-    private val resetButton: Button by lazy {
-        requireActivity().findViewById(R.id.reset_button)
-    }
+    private var _binding: FragmentStopwatchBinding? = null
+    private val binding get() = _binding!!
 
     private var second = 0
     private var isRunning: Boolean = false
@@ -48,6 +37,7 @@ class StopWatchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentStopwatchBinding.bind(view)
 
         if (savedInstanceState != null) {
             second = savedInstanceState.getInt("second")
@@ -55,15 +45,15 @@ class StopWatchFragment : Fragment() {
         }
         runTimer()
 
-        startButton.setOnClickListener {
-            startButton.isEnabled = false
+        binding.startButton.setOnClickListener {
+            binding.startButton.isEnabled = false
             isRunning = true
         }
-        stopButton.setOnClickListener {
-            startButton.isEnabled = true
+        binding.stopButton.setOnClickListener {
+            binding.startButton.isEnabled = true
             isRunning = false
         }
-        resetButton.setOnClickListener {
+        binding.resetButton.setOnClickListener {
             isRunning = false
             second = START_TIME
         }
@@ -78,7 +68,7 @@ class StopWatchFragment : Fragment() {
                 TIME_FORMAT,
                 hours, minutes, secs
             )
-            timeView.text = time
+            binding.timeView.text = time
             if (isRunning) {
                 second++
             }
@@ -89,7 +79,7 @@ class StopWatchFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("second", second)
-        outState.putBoolean("running", isRunning)
+        outState.putInt(SECOND, second)
+        outState.putBoolean(RUNNING, isRunning)
     }
 }

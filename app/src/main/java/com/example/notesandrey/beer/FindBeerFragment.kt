@@ -1,28 +1,18 @@
 package com.example.notesandrey.beer
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
+import com.example.notesandrey.databinding.FragmentFindBeerBinding
 
 
 class FindBeerFragment : Fragment() {
 
-    private val brand: TextView by lazy {
-        requireActivity().findViewById(R.id.brands)
-    }
-    private val spinner: Spinner by lazy {
-        requireActivity().findViewById(R.id.color)
-    }
-
-    private val button: Button by lazy {
-        requireActivity().findViewById(R.id.find_beer)
-    }
+    private var _binding: FragmentFindBeerBinding? = null
+    private val binding get() = _binding!!
 
     private fun beerExpert(color: String): List<String> {
 
@@ -47,20 +37,24 @@ class FindBeerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         beerExpert("amber")
+        _binding = FragmentFindBeerBinding.bind(view)
+        binding.findBeer.setOnClickListener {
 
-        button.setOnClickListener {
-
-            val beerType = spinner.selectedItem.toString()
-            brand.text = beerType
+            val beerType = binding.color.selectedItem.toString()
+            binding.brands.text = beerType
             var str = ""
 
             for (brand in beerExpert(beerType)) {
                 str += brand + "\n"
             }
-            brand.text = str
+            binding.brands.text = str
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
     }

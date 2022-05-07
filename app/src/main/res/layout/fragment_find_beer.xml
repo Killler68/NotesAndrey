@@ -21,7 +21,7 @@
 
 
     <Button
-        android:id="@+id/find_beer"
+        android:id="@+id/findBeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/color"
@@ -34,8 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:layout_below="@+id/find_beer"
-        android:layout_alignStart="@+id/find_beer"
+        android:layout_below="@+id/findBeer"
+        android:layout_alignStart="@+id/findBeer"
         />
 
 </RelativeLayout>

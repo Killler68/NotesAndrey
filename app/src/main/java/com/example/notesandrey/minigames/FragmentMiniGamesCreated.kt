@@ -2,36 +2,22 @@ package com.example.notesandrey.minigames
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.notesandrey.MyDialogFragment
 import com.example.notesandrey.R
 import com.example.notesandrey.common.fragment.navigateToFragment
+import com.example.notesandrey.databinding.FragmentMiniGamesCreatedBinding
 
 
 class FragmentMiniGamesCreated : Fragment() {
 
-
-    private val btn1: Button by lazy {
-        requireActivity().findViewById(R.id.button1)
-    }
-    private val btn2: Button by lazy {
-        requireActivity().findViewById(R.id.button2)
-    }
-    private val btn3: Button by lazy {
-        requireActivity().findViewById(R.id.button3)
-    }
-    private val textName: TextView by lazy {
-        requireActivity().findViewById(R.id.textView)
-    }
-    private val dialogFragment: Button by lazy {
-        requireActivity().findViewById(R.id.button4)
-    }
+    private var _binding: FragmentMiniGamesCreatedBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,26 +29,26 @@ class FragmentMiniGamesCreated : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentMiniGamesCreatedBinding.bind(view)
 
-        btn1.setOnClickListener {
+        binding.button1.setOnClickListener {
             navigateToFragment(FragmentGamesCounter())
         }
-        btn3.setOnClickListener {
-            showInfo(text = "no", btn3)
+        binding.button3.setOnClickListener {
+            showInfo(text = "no", binding.button3)
         }
-        btn2.setOnClickListener {
-            showInfo(textName.text.toString(), btn2)
+        binding.button2.setOnClickListener {
+            showInfo(binding.textView.text.toString(), binding.button2)
         }
 //        dialogFragment.setOnClickListener {
 //            val builder = DialogFragment()
 //            val manager = parentFragmentManager
 //            builder.show(manager, "MyDialog")
 //        }
-        dialogFragment.setOnClickListener {
+        binding.button4.setOnClickListener {
             navigateToFragment(MyDialogFragment())
         }
     }
-
 
 
     private fun showInfo(text: String, btnOn: Button) {
