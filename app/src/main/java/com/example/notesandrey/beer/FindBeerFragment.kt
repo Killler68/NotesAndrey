@@ -38,20 +38,19 @@ class FindBeerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         beerExpert("amber")
         _binding = FragmentFindBeerBinding.bind(view)
-        binding.apply {
-            findBeer.setOnClickListener {
+        binding.findBeer.setOnClickListener {
 
-                val beerType = spinnerBeerColor.selectedItem.toString()
-                brands.text = beerType
+                val beerType = binding.spinnerBeerColor.selectedItem.toString()
+            binding.brands.text = beerType
                 var str = ""
 
                 for (brand in beerExpert(beerType)) {
                     str += brand + "\n"
                 }
-                brands.text = str
+            binding.brands.text = str
             }
         }
-    }
+    
 
     override fun onDestroyView() {
         super.onDestroyView()
