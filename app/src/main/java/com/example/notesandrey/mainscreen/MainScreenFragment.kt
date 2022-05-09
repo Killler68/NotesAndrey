@@ -1,12 +1,12 @@
 package com.example.notesandrey.mainscreen
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesandrey.BlankFragment
+import com.example.notesandrey.FragmentSoundSplin
 import com.example.notesandrey.R
 import com.example.notesandrey.banner.FragmentBanner
 import com.example.notesandrey.beer.FindBeerFragment
@@ -24,6 +24,8 @@ private const val NAME_BUTTON_TIME = "СЕКУНДОМЕР"
 private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
 private const val NAME_BUTTON_BANNER = "БАННЕР"
 private const val NAME_BUTTON_MINI_GAMES = "МИНИ ИГРЫ"
+private const val NAME_BUTTON_SOUND = "ПЕСНЯ СПЛИН"
+
 
 class MainScreenFragment : Fragment() {
 
@@ -59,7 +61,7 @@ class MainScreenFragment : Fragment() {
             FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
             FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick),
             FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick),
-            FragmentItem(BlankFragment(), NAME_BUTTON_BANNER, ::onClick)
+            FragmentItem(FragmentSoundSplin(), NAME_BUTTON_SOUND, ::onClick)
         )
 
 }

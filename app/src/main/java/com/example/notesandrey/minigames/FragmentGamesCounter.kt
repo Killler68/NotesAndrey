@@ -33,7 +33,7 @@ class FragmentGamesCounter : Fragment() {
             while (start) {
                 Thread.sleep(1000)
                 kotlin.run {
-//                    if (counter == 5) backgroundLayout.setBackgroundColor(Color.RED)
+                    if (counter > 5) Thread.sleep(3000)
                     binding.text.text = counter.toString()
                     counter++
                 }
