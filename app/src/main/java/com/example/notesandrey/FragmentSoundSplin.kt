@@ -32,29 +32,39 @@ class FragmentSoundSplin : Fragment() {
     }
 
     private fun soundSplin() {
-        binding.apply {
-            soundStart.setOnClickListener {
-                mediaPlayer = MediaPlayer.create(activity, R.raw.splin)
-                mediaPlayer.start()
-                it.isEnabled = false
-                soundStop.isEnabled = true
+        binding.soundStart.setOnClickListener {
+            soundClickStart()
 
-                mediaPlayer.setOnCompletionListener {
-                    soundStop.isEnabled = false
-                    soundStart.isEnabled = true
-                    Toast.makeText(activity, SOUND_COMPLETION, Toast.LENGTH_SHORT).show()
-                }
+            mediaPlayer.setOnCompletionListener {
+                soundCompletionListener()
             }
-            soundStop.setOnClickListener {
-                if (mediaPlayer.isPlaying) {
-                    mediaPlayer.stop()
-                    mediaPlayer.reset()
-                    mediaPlayer.release()
+        }
+        binding.soundStop.setOnClickListener {
+            soundClickStop()
+        }
+    }
 
-                    it.isEnabled = false
-                    soundStart.isEnabled = true
-                }
-            }
+    private fun soundClickStart() {
+        mediaPlayer = MediaPlayer.create(activity, R.raw.splin)
+        mediaPlayer.start()
+        binding.soundStart.isEnabled = false
+        binding.soundStop.isEnabled = true
+    }
+
+    private fun soundCompletionListener() {
+        binding.soundStop.isEnabled = false
+        binding.soundStart.isEnabled = true
+        Toast.makeText(activity, SOUND_COMPLETION, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun soundClickStop() {
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.stop()
+            mediaPlayer.reset()
+            mediaPlayer.release()
+
+            binding.soundStop.isEnabled = false
+            binding.soundStart.isEnabled = true
         }
     }
 }

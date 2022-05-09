@@ -50,7 +50,6 @@ class FindBeerFragment : Fragment() {
             binding.brands.text = str
             }
         }
-    
 
     override fun onDestroyView() {
         super.onDestroyView()

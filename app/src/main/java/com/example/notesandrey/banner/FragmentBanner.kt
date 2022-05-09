@@ -31,13 +31,15 @@ class FragmentBanner : Fragment() {
     }
 
     private fun soundMeow() {
-        binding.banner.setOnClickListener {
-            mediaPlayer = MediaPlayer.create(activity, R.raw.catmeow1)
-            mediaPlayer.start()
-        }
-        binding.poster.setOnClickListener {
-            mediaPlayer = MediaPlayer.create(activity, R.raw.catmeow2)
-            mediaPlayer.start()
+        binding.apply {
+            banner.setOnClickListener {
+                mediaPlayer = MediaPlayer.create(activity, R.raw.catmeow1)
+                mediaPlayer.start()
+            }
+            poster.setOnClickListener {
+                mediaPlayer = MediaPlayer.create(activity, R.raw.catmeow2)
+                mediaPlayer.start()
+            }
         }
     }
 }
