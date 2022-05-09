@@ -9,7 +9,7 @@
     tools:context=".beer.FindBeerFragment">
 
     <Spinner
-        android:id="@+id/color"
+        android:id="@+id/spinner_beer_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,8 +24,8 @@
         android:id="@+id/findBeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@id/color"
-        android:layout_below="@id/color"
+        android:layout_alignStart="@id/spinner_beer_color"
+        android:layout_below="@id/spinner_beer_color"
         android:text="@string/name_beer"
         tools:ignore="UsingOnClickInXml" />
 

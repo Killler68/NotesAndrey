@@ -38,16 +38,18 @@ class FindBeerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         beerExpert("amber")
         _binding = FragmentFindBeerBinding.bind(view)
-        binding.findBeer.setOnClickListener {
+        binding.apply {
+            findBeer.setOnClickListener {
 
-            val beerType = binding.color.selectedItem.toString()
-            binding.brands.text = beerType
-            var str = ""
+                val beerType = spinnerBeerColor.selectedItem.toString()
+                brands.text = beerType
+                var str = ""
 
-            for (brand in beerExpert(beerType)) {
-                str += brand + "\n"
+                for (brand in beerExpert(beerType)) {
+                    str += brand + "\n"
+                }
+                brands.text = str
             }
-            binding.brands.text = str
         }
     }
 

@@ -40,22 +40,25 @@ class StopWatchFragment : Fragment() {
         _binding = FragmentStopwatchBinding.bind(view)
 
         if (savedInstanceState != null) {
-            second = savedInstanceState.getInt("second")
-            isRunning = savedInstanceState.getBoolean("running")
+            second = savedInstanceState.getInt(SECOND)
+            isRunning = savedInstanceState.getBoolean(RUNNING)
         }
         runTimer()
 
-        binding.startButton.setOnClickListener {
-            binding.startButton.isEnabled = false
-            isRunning = true
-        }
-        binding.stopButton.setOnClickListener {
-            binding.startButton.isEnabled = true
-            isRunning = false
-        }
-        binding.resetButton.setOnClickListener {
-            isRunning = false
-            second = START_TIME
+        binding.apply {
+            startButton.setOnClickListener {
+                startButton.isEnabled = false
+                isRunning = true
+            }
+            stopButton.setOnClickListener {
+                startButton.isEnabled = true
+                isRunning = false
+            }
+            resetButton.setOnClickListener {
+                startButton.isEnabled = true
+                isRunning = false
+                second = START_TIME
+            }
         }
     }
 
