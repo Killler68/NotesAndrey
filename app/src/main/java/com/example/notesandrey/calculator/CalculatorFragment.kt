@@ -90,21 +90,10 @@ class CalculatorFragment : Fragment() {
             }
 
             oneClear.setOnClickListener {
-                val str = textField.text.toString()
-                if (str.isNotEmpty())
-                    textField.text = str.removeRange(str.lastIndex..str.lastIndex)
+                calculatorOneClear()
             }
             equally.setOnClickListener {
-                try {
-                    val expression = ExpressionBuilder(textField.text.toString()).build()
-                    val result = expression.evaluate()
-                    val longResult = result.toLong()
-                    if (result == longResult.toDouble())
-                        textField.text = longResult.toString()
-                    else textField.text = result.toString()
-                } catch (e: Exception) {
-                    Log.d(this.javaClass.simpleName, e.message.toString())
-                }
+                calculatorEqually()
             }
         }
     }
@@ -115,6 +104,25 @@ class CalculatorFragment : Fragment() {
 
     private fun setOperatorFields(str: Operators) {
         binding.textField.append(str.value)
+    }
+
+    private fun calculatorOneClear() {
+        val str = binding.textField.text.toString()
+        if (str.isNotEmpty())
+            binding.textField.text = str.removeRange(str.lastIndex..str.lastIndex)
+    }
+
+    private fun calculatorEqually() {
+        try {
+            val expression = ExpressionBuilder(binding.textField.text.toString()).build()
+            val result = expression.evaluate()
+            val longResult = result.toLong()
+            if (result == longResult.toDouble())
+                binding.textField.text = longResult.toString()
+            else binding.textField.text = result.toString()
+        } catch (e: Exception) {
+            Log.d(this.javaClass.simpleName, e.message.toString())
+        }
     }
 
 
