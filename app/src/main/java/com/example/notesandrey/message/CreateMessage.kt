@@ -32,14 +32,14 @@ class CreateMessage : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_message, container, false)
+        _binding = FragmentCreateMessageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentCreateMessageBinding.bind(view)
 
         binding.sendMessage.setOnClickListener {
             val fragmentReceive = ReceiveMessage()
