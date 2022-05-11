@@ -1,7 +1,6 @@
 package com.example.notesandrey.minigames
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -22,8 +21,6 @@ private const val TITLE = "Какой котик милее?"
 private const val NEUTRAL_BUTTON = "INFO"
 private const val POSITIVE_BUTTON = "YES"
 private const val NEGATIVE_BUTTON = "No"
-private const val RIGHT_CHOICE = "No"
-private const val NOT_RIGHT_CHOICE = "No"
 
 
 class FragmentMiniGamesCreated : Fragment() {
@@ -59,10 +56,10 @@ class FragmentMiniGamesCreated : Fragment() {
             btnSound.setOnClickListener {
                 fragmentNavigate(FragmentMiniSound())
                 showInfo(text = NAME_SOUND, binding.btnSound)
-
             }
         }
     }
+
     private fun fragmentNavigate(fragment: Fragment) {
         this.parentFragmentManager.beginTransaction()
             .replace(R.id.mini_games_constraint, fragment)
@@ -83,18 +80,12 @@ class FragmentMiniGamesCreated : Fragment() {
             ?.setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
                 Log.d("MyLog", "My choise is : $wich Is $choise ")
             }
-            ?.setNeutralButton(NEUTRAL_BUTTON, DialogInterface.OnClickListener { dialogInterface, i -> })
+            ?.setNeutralButton(NEUTRAL_BUTTON) { dialogInterface, i -> }
             ?.setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
             ?.setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
-                if (    i == 2  ) {
-                    Toast.makeText(activity, RIGHT_CHOICE, Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity, NOT_RIGHT_CHOICE, Toast.LENGTH_SHORT).show()
-                }
             }
         builder?.show()
     }
-
 
 
 }

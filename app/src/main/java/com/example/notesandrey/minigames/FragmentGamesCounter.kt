@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.notesandrey.R
 import com.example.notesandrey.databinding.FragmentGamesCounterBinding
 
+private const val SPEED_THREAD = 1000
+private const val CONDITION_NUMBER_1 = 5
+private const val CONDITION_NUMBER_2 = 8
 
 class FragmentGamesCounter : Fragment() {
 
@@ -32,10 +35,10 @@ class FragmentGamesCounter : Fragment() {
         Thread {
             start = true
             while (start) {
-                Thread.sleep(1000)
+                Thread.sleep(SPEED_THREAD.toLong())
                 kotlin.run {
-                    if (counter > 5) Thread.sleep(1000)
-                    if (counter == 8) binding.text.setTextColor(Color.RED)
+                    if (counter > CONDITION_NUMBER_1) Thread.sleep(SPEED_THREAD.toLong())
+                    if (counter == CONDITION_NUMBER_2) binding.text.setTextColor(Color.RED)
                     binding.text.text = counter.toString()
                     counter++
                 }

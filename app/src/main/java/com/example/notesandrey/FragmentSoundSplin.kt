@@ -47,7 +47,7 @@ class FragmentSoundSplin : Fragment() {
     private fun soundClickStart() {
         mediaPlayer = MediaPlayer.create(activity, R.raw.splin)
         mediaPlayer.start()
-        mediaPlayer.seekTo(5000)
+        mediaPlayer.seekTo(0)
         binding.soundStart.isEnabled = false
         binding.soundStop.isEnabled = true
     }
