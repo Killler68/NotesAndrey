@@ -15,6 +15,16 @@ import com.example.notesandrey.FragmentMiniSound
 import com.example.notesandrey.R
 import com.example.notesandrey.databinding.FragmentMiniGamesCreatedBinding
 
+private const val NAME_BUTTON_CLICK = "Уже нажали"
+private const val NAME_BUTTON_CLICK_ANSWER = "NO"
+private const val NAME_SOUND = "Песня Судно"
+private const val TITLE = "Какой котик милее?"
+private const val NEUTRAL_BUTTON = "INFO"
+private const val POSITIVE_BUTTON = "YES"
+private const val NEGATIVE_BUTTON = "No"
+private const val RIGHT_CHOICE = "No"
+private const val NOT_RIGHT_CHOICE = "No"
+
 
 class FragmentMiniGamesCreated : Fragment() {
 
@@ -38,7 +48,7 @@ class FragmentMiniGamesCreated : Fragment() {
                 fragmentNavigate(FragmentGamesCounter())
             }
             button3.setOnClickListener {
-                showInfo(text = "no", binding.button3)
+                showInfo(text = NAME_BUTTON_CLICK_ANSWER, binding.button3)
             }
             button2.setOnClickListener {
                 showInfo(binding.textView.text.toString(), binding.button2)
@@ -48,7 +58,7 @@ class FragmentMiniGamesCreated : Fragment() {
             }
             btnSound.setOnClickListener {
                 fragmentNavigate(FragmentMiniSound())
-                showInfo(text = "Песня Судно", binding.btnSound)
+                showInfo(text = NAME_SOUND, binding.btnSound)
 
             }
         }
@@ -62,24 +72,24 @@ class FragmentMiniGamesCreated : Fragment() {
 
     private fun showInfo(text: String, btnOn: Button) {
 
-        btnOn.text = "Уже нажали"
+        btnOn.text = NAME_BUTTON_CLICK
         btnOn.setBackgroundColor(Color.RED)
         Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
     }
 
     private fun createSimpleMultiChoiceDialog() {
         val builder = activity?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("Какой то текст")
+        builder?.setTitle(TITLE)
             ?.setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
                 Log.d("MyLog", "My choise is : $wich Is $choise ")
             }
-            ?.setNeutralButton("info", DialogInterface.OnClickListener { dialogInterface, i -> })
-            ?.setNegativeButton("No") { dialogInterface, i -> }
-            ?.setPositiveButton("Yes") { dialog, i ->
+            ?.setNeutralButton(NEUTRAL_BUTTON, DialogInterface.OnClickListener { dialogInterface, i -> })
+            ?.setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
+            ?.setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
                 if (    i == 2  ) {
-                    Toast.makeText(activity, "Лучший выбор ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, RIGHT_CHOICE, Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(activity, "ты лох ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, NOT_RIGHT_CHOICE, Toast.LENGTH_SHORT).show()
                 }
             }
         builder?.show()
