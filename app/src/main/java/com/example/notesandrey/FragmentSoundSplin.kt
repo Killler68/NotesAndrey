@@ -23,7 +23,6 @@ class FragmentSoundSplin : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSoundSplinBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -48,6 +47,7 @@ class FragmentSoundSplin : Fragment() {
     private fun soundClickStart() {
         mediaPlayer = MediaPlayer.create(activity, R.raw.splin)
         mediaPlayer.start()
+        mediaPlayer.seekTo(5000)
         binding.soundStart.isEnabled = false
         binding.soundStop.isEnabled = true
     }

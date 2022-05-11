@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/background_games_counter"
     tools:context=".minigames.FragmentGamesCounter">
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/text"
-        android:layout_marginHorizontal="100dp"
-        android:layout_marginVertical="200dp"
-        android:text="" />
+        android:textSize="30sp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"/>
 
 </FrameLayout>

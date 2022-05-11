@@ -1,5 +1,6 @@
 package com.example.notesandrey.minigames
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,8 @@ class FragmentGamesCounter : Fragment() {
             while (start) {
                 Thread.sleep(1000)
                 kotlin.run {
-                    if (counter > 5) Thread.sleep(3000)
+                    if (counter > 5) Thread.sleep(1000)
+                    if (counter == 8) binding.text.setTextColor(Color.RED)
                     binding.text.text = counter.toString()
                     counter++
                 }

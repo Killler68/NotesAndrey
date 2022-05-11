@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="beer_colors">
+        <item>light</item>
+        <item>amber</item>
+        <item>brown</item>
+        <item>dark</item>
+    </string-array>
+    <string-array name="cats">
+        <item>Мейн-кун</item>
+        <item>Шотландский</item>
+        <item>Британский</item>
+        <item>Персидский</item>
+    </string-array>
+
+</resources>

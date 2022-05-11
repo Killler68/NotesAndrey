@@ -1,16 +1,18 @@
 package com.example.notesandrey.minigames
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.notesandrey.MyDialogFragment
+import com.example.notesandrey.FragmentMiniSound
 import com.example.notesandrey.R
-import com.example.notesandrey.common.fragment.navigateToFragment
 import com.example.notesandrey.databinding.FragmentMiniGamesCreatedBinding
 
 
@@ -31,25 +33,32 @@ class FragmentMiniGamesCreated : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMiniGamesCreatedBinding.bind(view)
 
-        binding.button1.setOnClickListener {
-            navigateToFragment(FragmentGamesCounter())
-        }
-        binding.button3.setOnClickListener {
-            showInfo(text = "no", binding.button3)
-        }
-        binding.button2.setOnClickListener {
-            showInfo(binding.textView.text.toString(), binding.button2)
-        }
-//        dialogFragment.setOnClickListener {
-//            val builder = DialogFragment()
-//            val manager = parentFragmentManager
-//            builder.show(manager, "MyDialog")
-//        }
-        binding.button4.setOnClickListener {
-            navigateToFragment(MyDialogFragment())
+        binding.apply {
+            button1.setOnClickListener {
+                fragmentNavigate(FragmentGamesCounter())
+            }
+            button3.setOnClickListener {
+                showInfo(text = "no", binding.button3)
+            }
+            button2.setOnClickListener {
+                showInfo(binding.textView.text.toString(), binding.button2)
+            }
+            btnCat.setOnClickListener {
+                createSimpleMultiChoiceDialog()
+            }
+            btnSound.setOnClickListener {
+                fragmentNavigate(FragmentMiniSound())
+                showInfo(text = "Песня Судно", binding.btnSound)
+
+            }
         }
     }
-
+    private fun fragmentNavigate(fragment: Fragment) {
+        this.parentFragmentManager.beginTransaction()
+            .replace(R.id.mini_games_constraint, fragment)
+            .addToBackStack(fragment.javaClass.simpleName)
+            .commit()
+    }
 
     private fun showInfo(text: String, btnOn: Button) {
 
@@ -57,8 +66,25 @@ class FragmentMiniGamesCreated : Fragment() {
         btnOn.setBackgroundColor(Color.RED)
         Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
     }
-//  private  fun createSimpleDialog() {
-//        val builder = DialogFragment()
-//        builder
-//    }
+
+    private fun createSimpleMultiChoiceDialog() {
+        val builder = activity?.let { AlertDialog.Builder(it) }
+        builder?.setTitle("Какой то текст")
+            ?.setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
+                Log.d("MyLog", "My choise is : $wich Is $choise ")
+            }
+            ?.setNeutralButton("info", DialogInterface.OnClickListener { dialogInterface, i -> })
+            ?.setNegativeButton("No") { dialogInterface, i -> }
+            ?.setPositiveButton("Yes") { dialog, i ->
+                if (    i == 2  ) {
+                    Toast.makeText(activity, "Лучший выбор ", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(activity, "ты лох ", Toast.LENGTH_SHORT).show()
+                }
+            }
+        builder?.show()
+    }
+
+
+
 }
