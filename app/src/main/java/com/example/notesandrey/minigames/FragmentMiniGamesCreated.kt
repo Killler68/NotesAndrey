@@ -1,6 +1,7 @@
 package com.example.notesandrey.minigames
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -74,18 +75,18 @@ class FragmentMiniGamesCreated : Fragment() {
         Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
     }
 
-    private fun createSimpleMultiChoiceDialog() {
-        val builder = activity.let { AlertDialog.Builder(it) }
-        builder.setTitle(TITLE)
-            .setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
-                Log.d("MyLog", "My choise is : $wich Is $choise ")
-            }
-            .setNeutralButton(NEUTRAL_BUTTON) { dialogInterface, i -> }
-            .setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
-            .setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
-            }
-        builder.show()
+    private fun createSimpleMultiChoiceDialog(): Dialog {
+        return activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.setTitle(TITLE)
+                .setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
+                    Log.d("MyLog", "My choise is : $wich Is $choise ")
+                }
+                .setNeutralButton(NEUTRAL_BUTTON) { dialogInterface, i -> }
+                .setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
+                .setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
+                }
+            builder.show()
+        } ?: throw IllegalStateException("Activity cannot be null")
     }
-
-
 }

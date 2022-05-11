@@ -11,13 +11,14 @@ import com.example.notesandrey.databinding.FragmentGamesCounterBinding
 private const val SPEED_THREAD = 1000
 private const val CONDITION_NUMBER_1 = 5
 private const val CONDITION_NUMBER_2 = 8
+private const val COUNTER_START_VALUE = 0
 
 class FragmentGamesCounter : Fragment() {
 
     private var _binding: FragmentGamesCounterBinding? = null
     private val binding get() = _binding!!
 
-    private var counter = 0
+    private var counter = COUNTER_START_VALUE
     private var start = false
 
     override fun onCreateView(
