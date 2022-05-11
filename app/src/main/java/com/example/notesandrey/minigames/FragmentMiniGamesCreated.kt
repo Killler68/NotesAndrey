@@ -75,16 +75,16 @@ class FragmentMiniGamesCreated : Fragment() {
     }
 
     private fun createSimpleMultiChoiceDialog() {
-        val builder = activity?.let { AlertDialog.Builder(it) }
-        builder?.setTitle(TITLE)
-            ?.setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
+        val builder = activity.let { AlertDialog.Builder(it) }
+        builder.setTitle(TITLE)
+            .setMultiChoiceItems(R.array.cats, null) { dialog, wich, choise ->
                 Log.d("MyLog", "My choise is : $wich Is $choise ")
             }
-            ?.setNeutralButton(NEUTRAL_BUTTON) { dialogInterface, i -> }
-            ?.setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
-            ?.setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
+            .setNeutralButton(NEUTRAL_BUTTON) { dialogInterface, i -> }
+            .setNegativeButton(NEGATIVE_BUTTON) { dialogInterface, i -> }
+            .setPositiveButton(POSITIVE_BUTTON) { dialog, i ->
             }
-        builder?.show()
+        builder.show()
     }
 
 
