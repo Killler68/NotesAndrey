@@ -16,7 +16,7 @@ import com.example.notesandrey.mainscreen.adapters.MainScreenRecyclerViewAdapter
 import com.example.notesandrey.mainscreen.models.FragmentItem
 import com.example.notesandrey.message.CreateMessage
 import com.example.notesandrey.minigames.FragmentMiniGamesCreated
-import com.example.notesandrey.stopwatch.StopWatchFragment
+import com.example.notesandrey.stopwatch.FragmentStopWatch
 
 private const val NAME_BUTTON_BEER = "НАЙДИ ПИВО"
 private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"
@@ -57,7 +57,7 @@ class MainScreenFragment : Fragment() {
         listOf(
             FragmentItem(FindBeerFragment(), NAME_BUTTON_BEER, ::onClick),
             FragmentItem(CreateMessage(), NAME_BUTTON_MESSAGE, ::onClick),
-            FragmentItem(StopWatchFragment(), NAME_BUTTON_TIME, ::onClick),
+            FragmentItem(FragmentStopWatch(), NAME_BUTTON_TIME, ::onClick),
             FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
             FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick),
             FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick),

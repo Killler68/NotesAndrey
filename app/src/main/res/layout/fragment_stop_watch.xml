@@ -3,48 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ccc"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:background="#ccc"
-    tools:context=".stopwatch.StopWatchFragment">
+    tools:context=".stopwatch.FragmentStopWatch">
 
     <TextView
-        android:id="@+id/time_view"
+        android:id="@+id/time_view_mvvm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:text=""
-        android:textColor="@color/black"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="92sp" />
+        android:textColor="@color/black"
+        android:textSize="80sp" />
 
     <Button
-        android:id="@+id/reset_button"
+        android:id="@+id/reset_button_mvvm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/stop_button"
-         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/stop_button_mvvm"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/reset" />
 
     <Button
-        android:id="@+id/stop_button"
+        android:id="@+id/stop_button_mvvm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/start_button"
+        android:layout_below="@id/start_button_mvvm"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/stop" />
 
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/start_button_mvvm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/time_view"
+        android:layout_below="@id/time_view_mvvm"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
         android:text="@string/start" />
