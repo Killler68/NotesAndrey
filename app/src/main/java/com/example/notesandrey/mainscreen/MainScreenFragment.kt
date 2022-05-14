@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notesandrey.FragmentSoundSplin
 import com.example.notesandrey.R
 import com.example.notesandrey.banner.FragmentBanner
-import com.example.notesandrey.beer.FindBeerFragment
+import com.example.notesandrey.beer.FragmentBeer
 import com.example.notesandrey.calculator.CalculatorFragment
 import com.example.notesandrey.common.fragment.navigateToFragment
 import com.example.notesandrey.mainscreen.adapters.MainScreenRecyclerViewAdapter
@@ -55,7 +55,7 @@ class MainScreenFragment : Fragment() {
 
     private fun getItems(): List<FragmentItem> =
         listOf(
-            FragmentItem(FindBeerFragment(), NAME_BUTTON_BEER, ::onClick),
+            FragmentItem(FragmentBeer(), NAME_BUTTON_BEER, ::onClick),
             FragmentItem(CreateMessage(), NAME_BUTTON_MESSAGE, ::onClick),
             FragmentItem(FragmentStopWatch(), NAME_BUTTON_TIME, ::onClick),
             FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),

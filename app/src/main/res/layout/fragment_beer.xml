@@ -6,7 +6,7 @@
     android:background="#ccc"
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
-    tools:context=".beer.FindBeerFragment">
+    tools:context=".beer.FragmentBeer">
 
     <Spinner
         android:id="@+id/spinner_beer_color"
@@ -16,16 +16,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:contentDescription="@string/name_beer"
-        android:minHeight="48dp"
-        android:entries="@array/beer_colors"/>
+        android:entries="@array/beer_colors"
+        android:minHeight="48dp" />
 
 
     <Button
         android:id="@+id/findBeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@id/spinner_beer_color"
         android:layout_below="@id/spinner_beer_color"
+        android:layout_alignStart="@id/spinner_beer_color"
         android:text="@string/name_beer"
         tools:ignore="UsingOnClickInXml" />
 
@@ -33,9 +33,9 @@
         android:id="@+id/brands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
         android:layout_below="@+id/findBeer"
         android:layout_alignStart="@+id/findBeer"
-        />
+        android:layout_marginTop="15dp"
+        android:textSize="25sp" />
 
 </RelativeLayout>

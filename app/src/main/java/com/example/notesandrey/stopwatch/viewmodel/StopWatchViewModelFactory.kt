@@ -5,10 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 
 class StopWatchViewModelFactory : ViewModelProvider.Factory {
 
-    private val mainViewModel = StopWatchMainViewModel()
+    private val stopWatchViewModel = StopWatchMainViewModel()
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        mainViewModel as T
-
-
+        stopWatchViewModel as T
 }
