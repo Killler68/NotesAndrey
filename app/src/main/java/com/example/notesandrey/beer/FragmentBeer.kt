@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.notesandrey.beer.viewmodel.BeerViewModel
 import com.example.notesandrey.beer.viewmodel.BeerViewModelFactory
-import com.example.notesandrey.beer.viewmodel.MainViewModel
 import com.example.notesandrey.databinding.FragmentBeerBinding
 
 
@@ -16,7 +16,7 @@ class FragmentBeer : Fragment() {
     private var _binding: FragmentBeerBinding? = null
     val binding get() = _binding!!
 
-    private val viewModel: MainViewModel by viewModels { BeerViewModelFactory() }
+    private val viewModel: BeerViewModel by viewModels { BeerViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

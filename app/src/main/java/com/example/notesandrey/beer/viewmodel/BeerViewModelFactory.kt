@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 
 class BeerViewModelFactory : ViewModelProvider.Factory {
 
-    private val mainViewModel = MainViewModel()
+    private val beerViewModel = BeerViewModel()
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        mainViewModel as T
+        beerViewModel as T
 
 }

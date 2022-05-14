@@ -18,7 +18,7 @@ private const val NAME_BEER_COLOR_KOZEL = "Козел"
 private const val NAME_BEER_COLOR_JOY = "Joy"
 private const val NAME_BEER_COLOR_HOT_BOY = "Hot Boy"
 
-class MainViewModel() : ViewModel() {
+class BeerViewModel() : ViewModel() {
 
     private val _brands: MutableLiveData<String> = MutableLiveData()
     val brands: LiveData<String> get() = _brands
