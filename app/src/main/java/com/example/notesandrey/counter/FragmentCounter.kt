@@ -14,11 +14,10 @@ import kotlinx.coroutines.*
 
 class FragmentCounter : Fragment() {
 
-    private var coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
-
     private var _binding: FragmentCounterBinding? = null
     private val binding get() = _binding!!
 
+    private var coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
     private val viewModel: CounterViewModel by viewModels { CounterViewModelFactory() }
 
     override fun onCreateView(
@@ -45,7 +44,6 @@ class FragmentCounter : Fragment() {
             increasing1()
             increasing2()
         }
-
         binding.button.setOnClickListener {
             viewModel.onShowText(binding.inputText.text.toString())
         }
@@ -61,8 +59,6 @@ class FragmentCounter : Fragment() {
             binding.btnCounterStart.isEnabled = true
             coroutineScope.cancel()
         }
-
-
     }
 
     private suspend fun loadDataEverySecond() {
