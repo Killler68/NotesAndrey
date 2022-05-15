@@ -123,6 +123,4 @@ class CalculatorFragment : Fragment() {
             Log.d(this.javaClass.simpleName, e.message.toString())
         }
     }
-
-
 }
