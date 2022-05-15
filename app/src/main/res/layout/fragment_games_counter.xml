@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/text"
+        android:id="@+id/counter_text"
         android:textSize="30sp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="100dp"/>

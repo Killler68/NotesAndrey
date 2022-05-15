@@ -14,6 +14,9 @@
     <string name="stop_watch">Секундомер</string>
     <string name="calculator">Калькулятор</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="counter1">Счетчик 1</string>
+    <string name="counter2">Счетчик 2</string>
+    <string name="send_message">Отправить</string>
 
 
     <string name="number0">0</string>

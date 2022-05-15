@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.notesandrey.databinding.FragmentCalculatorBinding
+import com.example.notesandrey.databinding.FragmentCalculatorsBinding
 import com.example.notesandrey.extensions.Numbers
 import com.example.notesandrey.extensions.Operators
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -15,7 +15,7 @@ private const val BACK = ("")
 
 class CalculatorFragment : Fragment() {
 
-    private var _binding: FragmentCalculatorBinding? = null
+    private var _binding: FragmentCalculatorsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ class CalculatorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentCalculatorBinding.inflate(inflater, container, false)
+        _binding = FragmentCalculatorsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

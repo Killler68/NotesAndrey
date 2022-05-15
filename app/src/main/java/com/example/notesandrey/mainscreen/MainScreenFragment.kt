@@ -12,6 +12,7 @@ import com.example.notesandrey.banner.FragmentBanner
 import com.example.notesandrey.beer.FragmentBeer
 import com.example.notesandrey.calculator.CalculatorFragment
 import com.example.notesandrey.common.fragment.navigateToFragment
+import com.example.notesandrey.counter.FragmentCounter
 import com.example.notesandrey.mainscreen.adapters.MainScreenRecyclerViewAdapter
 import com.example.notesandrey.mainscreen.models.FragmentItem
 import com.example.notesandrey.message.CreateMessage
@@ -25,6 +26,7 @@ private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
 private const val NAME_BUTTON_BANNER = "БАННЕР"
 private const val NAME_BUTTON_MINI_GAMES = "МИНИ ИГРЫ"
 private const val NAME_BUTTON_SOUND = "ПЕСНЯ СПЛИН"
+private const val NAME_BUTTON_COUNTER = "СЧЕТЧИК"
 
 
 class MainScreenFragment : Fragment() {
@@ -61,7 +63,8 @@ class MainScreenFragment : Fragment() {
             FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
             FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick),
             FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick),
-            FragmentItem(FragmentSoundSplin(), NAME_BUTTON_SOUND, ::onClick)
+            FragmentItem(FragmentSoundSplin(), NAME_BUTTON_SOUND, ::onClick),
+            FragmentItem(FragmentCounter(), NAME_BUTTON_COUNTER, ::onClick)
         )
 
 }
