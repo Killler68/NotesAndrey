@@ -20,17 +20,20 @@ class CounterViewModel(private val repository: CounterRepository) : ViewModel() 
     val outputText: LiveData<String> get() = _outputText
 
     private var counter = NUMBER_START
+    var isRunning: Boolean = false
 
     fun increasing1() {
         val counterText = repository.getText()
         _counter1.postValue(counterText + counter.toString())
-        counter++
+        if (isRunning)
+            counter++
     }
 
     fun increasing2() {
         val counterText = repository.getText2()
         _counter2.postValue(counterText + counter.toString())
-        counter++
+        if (isRunning)
+            counter++
     }
 
     fun onShowText(text: String) {

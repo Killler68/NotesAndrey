@@ -17,7 +17,6 @@ import kotlinx.coroutines.launch
 
 class FragmentCounter : Fragment() {
 
-    // скоуп корутины, на это можешь не смотреть
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
 
     private var _binding: FragmentCounterBinding? = null
@@ -46,7 +45,6 @@ class FragmentCounter : Fragment() {
             outputText.observe(viewLifecycleOwner) {
                 binding.outputText.text = it
             }
-
             increasing1()
             increasing2()
         }
@@ -54,14 +52,20 @@ class FragmentCounter : Fragment() {
         binding.button.setOnClickListener {
             viewModel.onShowText(binding.inputText.text.toString())
         }
+        binding.btnCounterStart.setOnClickListener {
+            binding.btnCounterStart.isEnabled = false
+            viewModel.isRunning = true
+        }
+        binding.btnCounterStop.setOnClickListener {
+            binding.btnCounterStart.isEnabled = true
+            viewModel.isRunning = false
+        }
 
-        // просто код что бы менять цифры
         coroutineScope.launch {
             loadDataEverySecond()
         }
     }
 
-    // просто код что бы менять цифры
     private suspend fun loadDataEverySecond() {
         coroutineScope.launch {
             viewModel.increasing1()
@@ -70,5 +74,4 @@ class FragmentCounter : Fragment() {
             loadDataEverySecond()
         }
     }
-
 }
