@@ -9,15 +9,12 @@ import androidx.fragment.app.viewModels
 import com.example.notesandrey.counter.viewmodel.CounterViewModel
 import com.example.notesandrey.counter.viewmodel.CounterViewModelFactory
 import com.example.notesandrey.databinding.FragmentCounterBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class FragmentCounter : Fragment() {
 
-    private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
+    private var coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
 
     private var _binding: FragmentCounterBinding? = null
     private val binding get() = _binding!!
@@ -54,16 +51,18 @@ class FragmentCounter : Fragment() {
         }
         binding.btnCounterStart.setOnClickListener {
             binding.btnCounterStart.isEnabled = false
-            viewModel.isRunning = true
+
+            coroutineScope = CoroutineScope(Dispatchers.Default)
+            coroutineScope.launch {
+                loadDataEverySecond()
+            }
         }
         binding.btnCounterStop.setOnClickListener {
             binding.btnCounterStart.isEnabled = true
-            viewModel.isRunning = false
+            coroutineScope.cancel()
         }
 
-        coroutineScope.launch {
-            loadDataEverySecond()
-        }
+
     }
 
     private suspend fun loadDataEverySecond() {

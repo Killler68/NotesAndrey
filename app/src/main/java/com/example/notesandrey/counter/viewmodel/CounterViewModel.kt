@@ -25,14 +25,14 @@ class CounterViewModel(private val repository: CounterRepository) : ViewModel() 
     fun increasing1() {
         val counterText = repository.getText()
         _counter1.postValue(counterText + counter.toString())
-        if (isRunning)
+//        if (isRunning)
             counter++
     }
 
     fun increasing2() {
         val counterText = repository.getText2()
         _counter2.postValue(counterText + counter.toString())
-        if (isRunning)
+//        if (isRunning)
             counter++
     }
 
