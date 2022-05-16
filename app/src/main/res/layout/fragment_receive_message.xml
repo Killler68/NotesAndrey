@@ -6,7 +6,7 @@
     android:id="@+id/backgroundReceiveMessage"
     android:paddingStart="30dp"
     android:paddingTop="250dp"
-    tools:context=".ReceiveMessage"
+    tools:context=".message.ReceiveMessage"
     tools:ignore="RtlSymmetry">
 
     <TextView
