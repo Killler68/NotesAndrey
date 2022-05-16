@@ -36,12 +36,10 @@ class FragmentGamesCounter : Fragment() {
             start = true
             while (start) {
                 Thread.sleep(SPEED_THREAD.toLong())
-                kotlin.run {
-                    if (counter > CONDITION_NUMBER_1) Thread.sleep(SPEED_THREAD.toLong())
-                    if (counter == CONDITION_NUMBER_2) binding.counterText.setTextColor(Color.RED)
-                    binding.counterText.text = counter.toString()
-                    counter++
-                }
+                if (counter > CONDITION_NUMBER_1) Thread.sleep(SPEED_THREAD.toLong())
+                if (counter == CONDITION_NUMBER_2) binding.counterText.setTextColor(Color.RED)
+                binding.counterText.text = counter.toString()
+                counter++
             }
         }.start()
     }
