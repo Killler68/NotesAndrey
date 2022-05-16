@@ -5,33 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesandrey.FragmentSoundSplin
 import com.example.notesandrey.R
-import com.example.notesandrey.banner.FragmentBanner
-import com.example.notesandrey.beer.FragmentBeer
-import com.example.notesandrey.calculator.CalculatorFragment
 import com.example.notesandrey.common.fragment.navigateToFragment
-import com.example.notesandrey.counter.FragmentCounter
 import com.example.notesandrey.mainscreen.adapters.MainScreenRecyclerViewAdapter
 import com.example.notesandrey.mainscreen.models.FragmentItem
-import com.example.notesandrey.message.CreateMessage
-import com.example.notesandrey.minigames.FragmentMiniGamesCreated
-import com.example.notesandrey.stopwatch.FragmentStopWatch
-
-private const val NAME_BUTTON_BEER = "НАЙДИ ПИВО"
-private const val NAME_BUTTON_MESSAGE = "ОТПРАВИТЬ СООБЩЕНИЕ"
-private const val NAME_BUTTON_TIME = "СЕКУНДОМЕР"
-private const val NAME_BUTTON_CALCULATOR = "КАЛЬКУЛЯТОР"
-private const val NAME_BUTTON_BANNER = "БАННЕР"
-private const val NAME_BUTTON_MINI_GAMES = "МИНИ ИГРЫ"
-private const val NAME_BUTTON_SOUND = "ПЕСНЯ СПЛИН"
-private const val NAME_BUTTON_COUNTER = "СЧЕТЧИК"
+import com.example.notesandrey.mainscreen.viewmodel.MainViewModel
+import com.example.notesandrey.mainscreen.viewmodel.MainViewModelFactory
 
 
-class MainScreenFragment : Fragment() {
+class MainScreenFragment() : Fragment() {
 
     private val recyclerViewAdapter = MainScreenRecyclerViewAdapter()
+    private val viewModel: MainViewModel by viewModels { MainViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,25 +33,20 @@ class MainScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val items = getItems()
-        recyclerViewAdapter.setItems(items)
+        viewModel.item.observe(viewLifecycleOwner) {
+            val items = it.map {
+                FragmentItem(
+                    it.fragment,
+                    it.name,
+                    ::onClick
+                )
+            }
+            recyclerViewAdapter.setItems(items)
+        }
+        viewModel.mainScreenFragmentItem()
     }
 
     private fun onClick(fragment: Fragment) {
         navigateToFragment(fragment)
     }
-
-    private fun getItems(): List<FragmentItem> =
-        listOf(
-            FragmentItem(FragmentBeer(), NAME_BUTTON_BEER, ::onClick),
-            FragmentItem(CreateMessage(), NAME_BUTTON_MESSAGE, ::onClick),
-            FragmentItem(FragmentStopWatch(), NAME_BUTTON_TIME, ::onClick),
-            FragmentItem(CalculatorFragment(), NAME_BUTTON_CALCULATOR, ::onClick),
-            FragmentItem(FragmentBanner(), NAME_BUTTON_BANNER, ::onClick),
-            FragmentItem(FragmentMiniGamesCreated(), NAME_BUTTON_MINI_GAMES, ::onClick),
-            FragmentItem(FragmentSoundSplin(), NAME_BUTTON_SOUND, ::onClick),
-            FragmentItem(FragmentCounter(), NAME_BUTTON_COUNTER, ::onClick)
-        )
-
 }
