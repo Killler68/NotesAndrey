@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.notesandrey.FragmentMiniSound
 import com.example.notesandrey.R
 import com.example.notesandrey.databinding.FragmentMiniGamesCreatedBinding
+import com.example.notesandrey.minigames.gamescounter.FragmentGamesCounter
 
 private const val NAME_BUTTON_CLICK = "Уже нажали"
 private const val NAME_BUTTON_CLICK_ANSWER = "NO"

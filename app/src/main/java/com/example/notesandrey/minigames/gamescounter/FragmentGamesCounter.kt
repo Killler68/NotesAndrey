@@ -1,25 +1,22 @@
-package com.example.notesandrey.minigames
+package com.example.notesandrey.minigames.gamescounter
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.notesandrey.databinding.FragmentGamesCounterBinding
+import com.example.notesandrey.minigames.gamescounter.viewmodel.GamesCounterViewModel
+import com.example.notesandrey.minigames.gamescounter.viewmodel.GamesCounterViewModelFactory
 
-private const val SPEED_THREAD = 1000
-private const val CONDITION_NUMBER_1 = 5
-private const val CONDITION_NUMBER_2 = 8
-private const val COUNTER_START_VALUE = 0
 
 class FragmentGamesCounter : Fragment() {
 
     private var _binding: FragmentGamesCounterBinding? = null
     private val binding get() = _binding!!
 
-    private var counter = COUNTER_START_VALUE
-    private var start = false
+    private val viewModel: GamesCounterViewModel by viewModels { GamesCounterViewModelFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,15 +29,9 @@ class FragmentGamesCounter : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Thread {
-            start = true
-            while (start) {
-                Thread.sleep(SPEED_THREAD.toLong())
-                if (counter > CONDITION_NUMBER_1) Thread.sleep(SPEED_THREAD.toLong())
-                if (counter == CONDITION_NUMBER_2) binding.counterText.setTextColor(Color.RED)
-                binding.counterText.text = counter.toString()
-                counter++
-            }
-        }.start()
+        viewModel.gamesCounter.observe(viewLifecycleOwner) {
+            binding.counterText.text = it
+        }
+        viewModel.counterOn()
     }
 }
