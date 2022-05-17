@@ -10,11 +10,11 @@ import com.example.notesandrey.R
 import com.example.notesandrey.common.fragment.navigateToFragment
 import com.example.notesandrey.databinding.FragmentCreateMessageBinding
 
+
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
 private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"
 private const val INTENT_TYPE = "text/plain"
 private const val NUMBER_LENGTH = 5
-
 
 class CreateMessage : Fragment() {
 
