@@ -12,7 +12,7 @@ import com.example.notesandrey.databinding.FragmentCreateMessageBinding
 
 private const val EDIT_SEND_MESSAGE1 = "Сообщение отправлено"
 private const val EDIT_SEND_MESSAGE2 = "Сообщение не отправлено"
-const val INTENT_TYPE = "text/plain"
+private const val INTENT_TYPE = "text/plain"
 private const val NUMBER_LENGTH = 5
 
 
@@ -20,14 +20,6 @@ class CreateMessage : Fragment() {
 
     private var _binding: FragmentCreateMessageBinding? = null
     private val binding get() = _binding!!
-
-    private fun onSendMessage(): String {
-        return if (binding.message.text.count() > NUMBER_LENGTH) {
-            EDIT_SEND_MESSAGE1
-        } else {
-            EDIT_SEND_MESSAGE2
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,21 +34,39 @@ class CreateMessage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.sendMessage.setOnClickListener {
-            val fragmentReceive = ReceiveMessage()
-            val bundle = Bundle()
-            val sendMessage = onSendMessage()
-            bundle.putString(BUNDLE_ARGUMENTS, sendMessage)
-            fragmentReceive.arguments = bundle
+            messageOn()
+        }
+    }
 
-            navigateToFragment(fragmentReceive)
+    private fun messageOn() {
+        receiveMessage()
+        intentMessage()
+    }
 
-            val intentEditText = binding.message.text
-            val intent = Intent(Intent.ACTION_SEND)
-            intent.type = (INTENT_TYPE)
-            intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
-            val chooserTitle = getString(R.string.chooser)
-            val chooserIntent = Intent.createChooser(intent, chooserTitle)
-            requireActivity().startActivity(chooserIntent)
+    private fun receiveMessage() {
+        val fragmentReceive = ReceiveMessage()
+        val bundle = Bundle()
+        val sendMessage = onSendMessage()
+        bundle.putString(BUNDLE_ARGUMENTS, sendMessage)
+        fragmentReceive.arguments = bundle
+        navigateToFragment(fragmentReceive)
+    }
+
+    private fun intentMessage() {
+        val intentEditText = binding.message.text
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = (INTENT_TYPE)
+        intent.putExtra(Intent.EXTRA_TEXT, intentEditText.toString())
+        val chooserTitle = getString(R.string.chooser)
+        val chooserIntent = Intent.createChooser(intent, chooserTitle)
+        requireActivity().startActivity(chooserIntent)
+    }
+
+    private fun onSendMessage(): String {
+        return if (binding.message.text.count() > NUMBER_LENGTH) {
+            EDIT_SEND_MESSAGE1
+        } else {
+            EDIT_SEND_MESSAGE2
         }
     }
 }
